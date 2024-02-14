@@ -23,16 +23,13 @@
                     <a class="{{request()->is('/*') ? 'active' : ''}} " href="{{route('home')}}">Home</a>
                 </div>
                 <div class="col">
-                    <a class="{{request()->is('about') ? 'active' : ''}} " href="{{route('about')}}">About</a>
+                    <a class="{{request()->is('about') ? 'active' : ''}} " href="{{route('about')}}">Dashboard</a>
                 </div>
                 <div class="col">
                     <a class="{{request()->is('products') ? 'active' : ''}} " href="{{route('products')}}">Product</a>
                 </div>
-                <div class="col">
-                    <a class="{{request()->is('card') ? 'active' : ''}} btn btn-danger " href="{{route('card')}}" >Card (0)</a>
-                </div>
             <div class="col">
-                    <a class="btn btn-primary " href="{{route('login')}}" >Login</a>
+                    <a class="btn btn-primary " href="{{route('home')}}" >Logout</a>
                 </div>
             </div>
         </div>
