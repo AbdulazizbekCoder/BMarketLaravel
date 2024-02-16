@@ -3,20 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class AdminController extends Controller
+class ProductsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('Admin.dashboard');
-    }
-    public function order()
-    {
-        return view('Admin.orders');
+        return view('Admin.products');
     }
 
     /**
@@ -57,11 +52,6 @@ class AdminController extends Controller
     public function update(Request $request, string $id)
     {
         //
-    }
-    public function logout()
-    {
-        Auth::logout();
-        return redirect()->route('home');
     }
 
     /**

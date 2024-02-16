@@ -7,6 +7,7 @@
     <title>{{config('app.name')}}</title>
     <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap-icons.min.css')}}">
+{{--    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>--}}
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="icon" href="{{asset('assets/imgs/img_6.png')}}">
 </head>
@@ -19,17 +20,17 @@
         </div>
         <div class="col d-flex align-items-center justify-content-end">
             <div class="row w-75 fs-5 fw-normal">
-                <div class="col">
-                    <a class="{{request()->is('/*') ? 'active' : ''}} " href="{{route('home')}}">Home</a>
+                <div class="col text-center">
+                    <a class="{{request()->is('/*') ? 'active' : ''}} " href="{{route('admin.dashboard')}}">Dashboard</a>
                 </div>
-                <div class="col">
-                    <a class="{{request()->is('about') ? 'active' : ''}} " href="{{route('about')}}">Dashboard</a>
+                <div class="col text-center">
+                    <a class="{{request()->is('about') ? 'active' : ''}} " href="{{route('admin.order')}}">Orders</a>
                 </div>
-                <div class="col">
-                    <a class="{{request()->is('products') ? 'active' : ''}} " href="{{route('products')}}">Product</a>
+                <div class="col text-center">
+                    <a class="{{request()->is('products') ? 'active' : ''}} " href="{{route('products.index')}}">Product</a>
                 </div>
-            <div class="col">
-                    <a class="btn btn-primary " href="{{route('home')}}" >Logout</a>
+            <div class="col text-center">
+                    <a class="btn btn-primary " href="{{route('logout')}}" >Logout</a>
                 </div>
             </div>
         </div>

@@ -18,8 +18,8 @@
     <div class="input">
         <form action="{{route('loginStore')}}" method="post">
             @csrf
-            <input name="phone" class="form-control mt-3 " type="number" placeholder="Phone number..." >
-            <input name="password" class="form-control mt-3 " type="password" placeholder="Password...">
+            <input name="phone" class="form-control mt-3 " type="number" placeholder="Phone number..." required>
+            <input name="password" class="form-control mt-3 " type="password" placeholder="Password..." required>
             <button class="btn btn-primary mt-3 mb-2  w-100" type="submit" >Kirish</button>
             <a href="{{route('home')}}" class="btn btn-dark  mb-4  w-100" >Orqaga</a>
         </form>

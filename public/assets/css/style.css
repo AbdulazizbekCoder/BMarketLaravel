@@ -1,5 +1,8 @@
 body {
     background: #f2ecee;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 .topbar {
@@ -15,12 +18,6 @@ a {
     color: green;
 }
 
-.container {
-    margin: 0 auto;
-    max-width: 900px;
-    padding: 0 20px;
-
-}
 
 .btn-default {
     background: #2b8379;
@@ -116,5 +113,16 @@ a {
     border-radius: 30%;
     padding: 5px 10px;
 }
-
-
+.rounded-5{
+    border-radius: 20px;
+}
+/*.cart{*/
+/*    text-align: center;*/
+/*    margin: 20px 20px;*/
+/*    width: 254px;*/
+/*    border-radius: 20px;*/
+/*    border: 1px solid #666;*/
+/*    background: #dddfe0;*/
+/*    height: 150px;*/
+/*    color: #333;*/
+/*}*/
