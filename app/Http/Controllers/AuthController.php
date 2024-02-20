@@ -16,14 +16,15 @@ class AuthController extends Controller
     public function loginStore(Request $request)
     {
         $user = User::where('phone', $request->get('phone'))->get()->first();
-      if(!is_null($user)){
-        if (\Hash::check($request->get('password'), $user->password) && $user->role === User::role['admin']) {
-            Auth::login($user);
-            return redirect()->route('admin/dashboard');
+        if (!is_null($user)) {
+            if (\Hash::check($request->get('password'), $user->password) && $user->role === User::role['admin']) {
+                Auth::login($user);
+                return redirect('admin/dashboard');
+            } else {
+                return redirect()->route('login');
+            }
         } else {
             return redirect()->route('login');
-        }}else{
-          return redirect()->route('login');
-      }
+        }
     }
 }
