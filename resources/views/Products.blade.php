@@ -14,6 +14,7 @@
                         <div class="product-quantity">0</div>
                     </div>
                 </div>
+
                 <div class="product-info">
                     <h3>Cheese</h3>
                     <p>200g cheese block</p>

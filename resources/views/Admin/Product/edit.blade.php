@@ -9,7 +9,7 @@
                     <a href="{{route('products.index')}}" class="btn btn-dark px-5">Back</a>
                 </div>
             </div>
-            <hr class="">
+            <hr>
             <div class="row">
                 <form action="{{route('products.update',['product' => $product->id])}}" method="post" enctype="multipart/form-data">
                     @method('PUT')

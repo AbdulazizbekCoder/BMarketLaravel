@@ -21,16 +21,16 @@ class ProductController extends Controller
         return view('Admin.Product.create');
     }
 
-    public function store(Request $request)
+    public function store(StoreProductRequest $request)
     {
-        $product = new Product();
-
-        $product->name = $request->name;
-        $product->price = $request->price;
-        $product->count = $request->count;
-        $product->unit = $request->unit;
-        $product->photo = $request->photo;
-        $product->description = $request->description;
+        $product = Product::create([
+            'name' => $request->name,
+            'price' => $request->price,
+            'count' => $request->count,
+            'unit' => $request->unit,
+            'photo' => $request->photo,
+            'description' => $request->description
+        ]);
 
         $product->save();
         return redirect()->route('products.index');
@@ -38,7 +38,9 @@ class ProductController extends Controller
 
     public function show(Product $product)
     {
-
+        return view('Admin.Product.show', [
+            'product' => $product
+        ]);
     }
 
     public function edit(Product $product)
@@ -49,13 +51,25 @@ class ProductController extends Controller
         ]);
     }
 
-    public function update(Request $request, Product $product)
+    public function update(StoreProductRequest $request, Product $product)
     {
-
+        $product->update([
+            'name' => $request->name,
+            'price' => $request->price,
+            'count' => $request->count,
+            'unit' => $request->unit,
+            'photo' => $request->photo,
+            'description' => $request->description
+        ]);
+        $product->save();
+        return redirect()->route('products.show',[
+            'product' => $product
+        ]);
     }
 
     public function destroy(Product $product)
     {
-        //
+        $product->delete();
+        return redirect()->route('products.index');
     }
 }

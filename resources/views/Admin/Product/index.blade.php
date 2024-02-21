@@ -33,13 +33,19 @@
                             <td style="width: 170px">
                                 <div class="row " >
                                     <div class="col">
-                                        <i class="bi bi-eye"></i>
+                                        <a href="{{route('products.show', $product)}}">
+                                            <i class="bi bi-eye"></i>
+                                        </a>
                                     </div>
                                     <div class="col">
-                                        <a href="{{route('products.edit', $product->id)}}">  <i class="bi bi-pen"></i></a>
+                                        <a href="{{route('products.edit', ['product' => $product->id])}}">  <i class="bi bi-pen"></i></a>
                                     </div>
                                     <div class="col">
-                                        <i class="bi bi-trash3"></i>
+                                        <form action="{{route('products.destroy', $product)}}" method="post">
+                                            @method('DELETE')
+                                            @csrf
+                                            <button class="bg-white border-0 bi bi-trash3"></button>
+                                        </form>
                                     </div>
                                 </div>
                             </td>
