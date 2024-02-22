@@ -7,6 +7,7 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -23,12 +24,15 @@ class ProductController extends Controller
 
     public function store(StoreProductRequest $request)
     {
+        $name = $request->file('photo')->getClientOriginalName();
+        $path = $request->file('photo')->storeAs('products_photos', $name);
+
         $product = Product::create([
             'name' => $request->name,
             'price' => $request->price,
             'count' => $request->count,
             'unit' => $request->unit,
-            'photo' => $request->photo,
+            'photo' => $path,
             'description' => $request->description
         ]);
 
@@ -51,14 +55,23 @@ class ProductController extends Controller
         ]);
     }
 
-    public function update(StoreProductRequest $request, Product $product)
+    public function update(UpdateProductRequest $request, Product $product)
     {
+        if(isset($request->photo)){
+       if (isset($request->photo)){
+           Storage::delete($product->photo);
+       }
+       $name = $request->file('photo')->getClientOriginalName();
+        $path = $request->file('photo')->storeAs('products_photos', $name);
+
+    }
+        
         $product->update([
             'name' => $request->name,
             'price' => $request->price,
             'count' => $request->count,
             'unit' => $request->unit,
-            'photo' => $request->photo,
+            'photo' => $path ?? $product->photo ,
             'description' => $request->description
         ]);
         $product->save();
@@ -70,6 +83,7 @@ class ProductController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
+        Storage::delete($product->photo);
         return redirect()->route('products.index');
     }
 }

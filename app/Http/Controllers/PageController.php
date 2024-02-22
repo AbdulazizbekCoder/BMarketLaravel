@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use Illuminate\Http\Request;
 
 class PageController extends Controller
@@ -18,7 +19,10 @@ class PageController extends Controller
 
     public function products()
     {
-        return view('Products');
+        $products = Product::all();
+        return view('Products', [
+            'products' => $products
+        ]);
     }
 
     public function card()

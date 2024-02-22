@@ -37,7 +37,7 @@ class StoreProductRequest extends FormRequest
             'price' => 'required',
             'count' => 'required',
             'unit' => 'required',
-            'photo' => 'required',
+            'photo' => 'image',
         ];
     }
 }

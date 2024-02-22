@@ -41,7 +41,7 @@
                                         <a href="{{route('products.edit', ['product' => $product->id])}}">  <i class="bi bi-pen"></i></a>
                                     </div>
                                     <div class="col">
-                                        <form action="{{route('products.destroy', $product)}}" method="post">
+                                        <form action="{{route('products.destroy', $product)}}" method="post" onsubmit="return confirm('Are you sure you wish to delete?');">
                                             @method('DELETE')
                                             @csrf
                                             <button class="bg-white border-0 bi bi-trash3"></button>
