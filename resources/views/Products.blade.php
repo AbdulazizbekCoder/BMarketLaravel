@@ -1,4 +1,6 @@
-<x-loyaut.header>
+@extends('components.loyaut.header')
+
+@section('content')
     <div class="container mt-5">
         <div class="my-4">
             <h1  class="my-4">Products</h1>
@@ -24,7 +26,7 @@
                     <button class="product-delete btn-outline btn1 btn-outline-danger btn2">x</button>
                 </div>
                 <div>
-                    <button class="btn1 btn-outline btn-success">${{$product->price}}</button>
+                    <a href="{{route('addProduct', $product)}}" class="btn1 btn-outline btn-success">${{$product->price}}</a>
                 </div>
             </div>
 
@@ -33,4 +35,4 @@
         </div>
     </div>
 
-</x-loyaut.header>
+@endsection

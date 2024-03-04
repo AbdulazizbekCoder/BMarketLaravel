@@ -16,7 +16,7 @@ class StoreProductRequest extends FormRequest
             'price' => 'narxi',
             'count' => 'soni',
             'unit' => 'birlik',
-            'photo' => 'rasmi',
+            'photo' => 'image',
         ];
     }
 

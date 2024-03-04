@@ -65,7 +65,7 @@ class ProductController extends Controller
         $path = $request->file('photo')->storeAs('products_photos', $name);
 
     }
-        
+
         $product->update([
             'name' => $request->name,
             'price' => $request->price,

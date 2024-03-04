@@ -28,8 +28,9 @@
                 <div class="col">
                     <a class="{{request()->is('products') ? 'active' : ''}} " href="{{route('products')}}">Product</a>
                 </div>
+
                 <div class="col">
-                    <a class="{{request()->is('card') ? 'active' : ''}} btn btn-danger " href="{{route('card')}}" >Card (0)</a>
+                    <a class="{{request()->is('card') ? 'active' : ''}} btn btn-danger " href="{{route('card')}}" >Card ( {{!isset($cart) ? '0' : count($cart)}} )</a>
                 </div>
             <div class="col">
                     <a class="btn btn-primary " href="{{route('login')}}" >Login</a>
@@ -40,7 +41,7 @@
 
 </div>
 
-{{$slot}}
+@yield('content')
 
 <script src="{{asset('bootstrap.bundle.js')}}"></script>
 <script src="{{asset('assets/js/app.js')}}"></script>

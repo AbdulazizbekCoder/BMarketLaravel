@@ -1,4 +1,6 @@
-<x-loyaut.admin>
+@extends('components.loyaut.admin')
+
+@section('content')
 
     <div class="container py-5">
         <div class="card border-0 shadow-lg p-3">
@@ -56,4 +58,4 @@
             </table>
         </div>
     </div>
-</x-loyaut.admin>
+@endsection

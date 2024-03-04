@@ -1,4 +1,8 @@
-<x-loyaut.admin>
+@extends('components.loyaut.admin')
+
+@section('content')
+
+
 
     <div class="container py-3 d-flex justify-content-center">
         <div class="card border-0 shadow-lg p-4 w-75">
@@ -43,4 +47,4 @@
         </div>
     </div>
 
-</x-loyaut.admin>
+@endsection

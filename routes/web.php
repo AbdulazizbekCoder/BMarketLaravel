@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\PageController;
 use \App\Http\Controllers\AuthController;
@@ -22,6 +23,7 @@ Route::get('/products', [PageController::class, 'products'])->name('products');
 Route::get('/card', [PageController::class, 'card'])->name('card');
 Route::post('/loginStore', [AuthController::class, 'loginStore'])->name('loginStore');
 Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('add-product/{product}' , [CartController::class, 'addProduct'])->name('addProduct');
 
 Route::middleware('auth')->group(function () {
 

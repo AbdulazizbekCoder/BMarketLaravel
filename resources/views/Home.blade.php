@@ -1,5 +1,6 @@
-<x-loyaut.header>
+@extends('components.loyaut.header')
 
+@section('content')
     <div class="container ">
         <div class="row mt-5">
             <div class="col-7 py-3">
@@ -15,5 +16,4 @@
             </div>
         </div>
     </div>
-
-</x-loyaut.header>
+@endsection

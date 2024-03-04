@@ -47,7 +47,7 @@
 
 </div>
 
-{{$slot}}
+@yield('content')
 
 <script src="{{asset('bootstrap.bundle.js')}}"></script>
 <script src="{{asset('assets/js/app.js')}}"></script>

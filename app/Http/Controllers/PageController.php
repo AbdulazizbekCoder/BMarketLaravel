@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
@@ -17,11 +18,15 @@ class PageController extends Controller
         return view('About');
     }
 
-    public function products()
+    public function products(Request $request)
     {
+//        dd($request->cookie('user'));
+
         $products = Product::all();
+        $cart = Cart::all();
         return view('Products', [
-            'products' => $products
+            'products' => $products,
+            'cart' => $cart
         ]);
     }
 
