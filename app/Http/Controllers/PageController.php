@@ -20,13 +20,12 @@ class PageController extends Controller
 
     public function products(Request $request)
     {
-//        dd($request->cookie('user'));
-
+        $uuid = $request->cookie('user');
         $products = Product::all();
-        $cart = Cart::all();
+        $carts = Cart::all()->where('uuid', $uuid);
         return view('Products', [
             'products' => $products,
-            'cart' => $cart
+            'carts' => $carts
         ]);
     }
 

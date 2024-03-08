@@ -14,11 +14,19 @@ class CartController extends Controller
     {
         $uuid = $request->cookie('user');
         if (isset($uuid)) {
-            $cart = Cart::create([
-                'product_id' => $product->id,
-                'quanity' => 1,
-                'uuid' => $uuid
-            ]);
+
+            $cart = Cart::where('uuid', $uuid)->where('product_id', $product->id)->first();
+
+            if (is_null($cart)) {
+                Cart::create([
+                    'product_id' => $product->id,
+                    'quanity' => 1,
+                    'uuid' => $uuid
+                ]);
+            } else {
+                $cart->quanity = $cart->quanity + 1;
+                $cart->save();
+            }
             return redirect()->route('products');
         } else {
             $cookie = cookie('user', Str::random(), 60);

@@ -30,7 +30,7 @@
                 </div>
 
                 <div class="col">
-                    <a class="{{request()->is('card') ? 'active' : ''}} btn btn-danger " href="{{route('card')}}" >Card ( {{!isset($cart) ? '0' : count($cart)}} )</a>
+                    <a class="{{request()->is('cards') ? 'active' : ''}} btn btn-danger " href="{{route('card')}}" >Card ( {{!isset($carts) ? '0' : count($carts)}} )</a>
                 </div>
             <div class="col">
                     <a class="btn btn-primary " href="{{route('login')}}" >Login</a>
