@@ -14,7 +14,7 @@
                              alt="">
                         <div class="{{$carts->count() > 0 ? '' : 'd-none'}} product-quantity-container">
                             <div class="product-quantity" >
-                                0
+                                {{$carts->count()}}
                             </div>
                         </div>
                     </div>
