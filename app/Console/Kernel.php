@@ -2,6 +2,9 @@
 
 namespace App\Console;
 
+use Carbon\Traits\Boundaries;
+use app\Models\Cart;
+use app\Models\Product;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -12,8 +15,11 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule): void
     {
-         $schedule->command('inspire')->everySecond();
-    }
+//         $schedule->command('inspire')->everySecond();
+        $schedule->call(function () {
+            Product::first()->delete();
+        })->everySecond();
+   }
 
     /**
      * Register the commands for the application.

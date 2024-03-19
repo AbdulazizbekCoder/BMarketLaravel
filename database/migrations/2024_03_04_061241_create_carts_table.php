@@ -16,6 +16,7 @@ return new class extends Migration
             $table->unsignedBigInteger('product_id');
             $table->integer('quanity');
             $table->string('uuid');
+            $table->timestamps();
         });
     }
 

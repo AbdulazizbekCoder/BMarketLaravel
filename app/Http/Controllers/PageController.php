@@ -22,16 +22,33 @@ class PageController extends Controller
     {
         $uuid = $request->cookie('user');
         $products = Product::all();
-        $carts = Cart::all()->where('uuid', $uuid);
+        $carts = Cart::where('uuid', $uuid)->get()->all();
+
+        $totalquantity = 0;
+        foreach($carts as $cart){
+            $totalquantity += $cart->quanity;
+        }
         return view('Products', [
             'products' => $products,
-            'carts' => $carts
+            'carts' => $carts,
+            'total' => $totalquantity
         ]);
     }
 
-    public function card()
+    public function card(Request $request)
     {
-        return view('Card');
+        $uuid = $request->cookie('user');
+        $carts = Cart::where('uuid', $uuid)->get()->all();
+        $products = Product::all();
+        $totalquantity = 0;
+        foreach($carts as $cart){
+            $totalquantity += $cart->quanity;
+        }
+        return view('Card', [
+            'carts' => $carts,
+            'total' => $totalquantity,
+            'products' => $products
+        ]);
     }
 
 

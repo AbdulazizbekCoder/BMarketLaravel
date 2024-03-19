@@ -18,7 +18,7 @@
             <a href="{{route('home')}}">{{config('app.name')}}</a>
         </div>
         <div class="col d-flex align-items-center justify-content-end">
-            <div class="row w-75 fs-5 fw-normal">
+            <div class="row w-75 fs-5 fw-normal ">
                 <div class="col">
                     <a class="{{request()->is('/*') ? 'active' : ''}} " href="{{route('home')}}">Home</a>
                 </div>
@@ -30,11 +30,13 @@
                 </div>
 
                 <div class="col">
-                    <a class="{{request()->is('cards') ? 'active' : ''}} btn btn-danger " href="{{route('card')}}" >Card ( {{!isset($carts) ? '0' : count($carts)}} )</a>
+                    <a class="{{request()->is('cards') ? 'active' : ''}} btn btn-danger " href="{{route('card')}}">Card
+                        ( {{!isset($carts) ? '0' : $total}} )</a>
                 </div>
-            <div class="col">
-                    <a class="btn btn-primary " href="{{route('login')}}" >Login</a>
+                <div class="col">
+                    <a class="btn btn-primary " href="{{route('login')}}">Login</a>
                 </div>
+
             </div>
         </div>
     </div>

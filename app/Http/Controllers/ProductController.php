@@ -38,6 +38,7 @@ class ProductController extends Controller
 
         $product->save();
         return redirect()->route('products.index');
+       
     }
 
     public function show(Product $product)

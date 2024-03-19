@@ -1,4 +1,4 @@
-@extends('components.loyaut.header')
+@extends('components.loyaut.admin')
 
 @section('content')
 

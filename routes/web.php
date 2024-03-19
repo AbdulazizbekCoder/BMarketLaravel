@@ -23,6 +23,7 @@ Route::get('/products', [PageController::class, 'products'])->name('products');
 Route::get('/card', [PageController::class, 'card'])->name('card');
 Route::post('/loginStore', [AuthController::class, 'loginStore'])->name('loginStore');
 Route::get('/login', [AuthController::class, 'login'])->name('login');
+Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::get('add-product/{product}' , [CartController::class, 'addProduct'])->name('addProduct');
 
 Route::middleware('auth')->group(function () {

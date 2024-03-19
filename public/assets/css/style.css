@@ -1,3 +1,8 @@
+:root {
+    --main_color: green;
+}
+
+
 body {
     background: #f2ecee;
     margin: 0;
@@ -9,7 +14,8 @@ body {
     height: 100px;
 
 }
-.active{
+
+.active {
     text-decoration: underline;
 }
 
@@ -96,6 +102,12 @@ a {
     padding: 8px 25px;
 }
 
+.orderbtn {
+    display: flex;
+    justify-content: end;
+    align-items: end;
+}
+
 .btn1 {
     border: 0;
     border-radius: 3px;
@@ -113,27 +125,21 @@ a {
     border-radius: 30%;
     padding: 5px 10px;
 }
-.rounded-5{
+
+.rounded-5 {
     border-radius: 20px;
 }
-/*.cart{*/
-/*    text-align: center;*/
-/*    margin: 20px 20px;*/
-/*    width: 254px;*/
-/*    border-radius: 20px;*/
-/*    border: 1px solid #666;*/
-/*    background: #dddfe0;*/
-/*    height: 150px;*/
-/*    color: #333;*/
-/*}*/
+
 .table-cart {
     text-align: center;
 }
-.table {
+
+.table1 {
     border-collapse: collapse;
     width: 100%;
 }
-table {
+
+table1 {
     display: table;
     border-collapse: separate;
     box-sizing: border-box;
@@ -141,12 +147,14 @@ table {
     border-spacing: 2px;
     border-color: gray;
 }
-.table.table-cart thead {
-    background-color: #970e3d;
+
+.table1.table-cart thead {
+    background-color: var(--main_color);
 }
-.table thead {
+
+.table1 thead {
     background-color: #2b8379;
-    border: 1px solid #fff;
+    border: 2px solid #fff;
     border-top: 0;
     color: #fff;
 }
@@ -156,40 +164,54 @@ thead {
     vertical-align: middle;
     border-color: inherit;
 }
+
 .table-cart {
     text-align: center;
 }
-.table {
+
+.table1 {
     border-collapse: collapse;
     width: 100%;
 }
-table {
+
+table1 {
     border-collapse: separate;
     text-indent: initial;
     border-spacing: 2px;
 }
-.table tbody {
+
+.table1 tbody {
     border: 1px solid #fff;
     font-size: 18px;
+    background: #ccc;
 }
+
 tbody {
     display: table-row-group;
     vertical-align: middle;
     border-color: inherit;
 }
+
 tfoot {
     display: table-footer-group;
     vertical-align: middle;
     border-color: inherit;
 }
+
 .cart-highlight {
-    background-color: #970ac3;
+    background-color: var(--main_color);
     color: #fff;
 }
-.table th {
+
+.table1 th {
     padding: 15px;
 }
 
+.errorPage {
+    background-image: url("../../../public/assets/imgs/img_7.png");
+    background-repeat: no-repeat;
+    background-position: center;
+}
 
 
 
