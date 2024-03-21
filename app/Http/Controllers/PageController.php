@@ -39,6 +39,24 @@ class PageController extends Controller
     {
         $uuid = $request->cookie('user');
         $carts = Cart::where('uuid', $uuid)->get()->all();
+        $date = [];
+        $totalprice = 0;
+        foreach($carts as $cart){
+                $product = Product::where('id', $cart->product_id)->select('name', 'photo', 'price')->first();
+
+                $data[] = [
+                    'products' => [
+                        'name' => $product->name,
+                        'photo' => $product->photo,
+                        'price' => $product->price
+                    ],
+                    'quantity' => $cart->quanity,
+                    'total' => $cart->quanity * $product->price
+                ];
+                $totalprice += $cart->quanity * $product->price;
+        }
+
+
         $products = Product::all();
         $totalquantity = 0;
         foreach($carts as $cart){
@@ -47,7 +65,8 @@ class PageController extends Controller
         return view('Card', [
             'carts' => $carts,
             'total' => $totalquantity,
-            'products' => $products
+            'data' => $data,
+            'totalprice' => $totalprice
         ]);
     }
 

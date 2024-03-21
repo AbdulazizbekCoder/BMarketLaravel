@@ -7,6 +7,7 @@
     <title>{{config('app.name')}}</title>
     <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap.min.css')}}">
     <link rel="stylesheet" href="{{asset('bootstrap/css/bootstrap-icons.min.css')}}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
     <link rel="icon" href="{{asset('assets/imgs/img_6.png')}}">
 </head>

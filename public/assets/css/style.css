@@ -206,7 +206,9 @@ tfoot {
 .table1 th {
     padding: 15px;
 }
-
+.font{
+    font-family: Calibri;
+}
 .errorPage {
     background-image: url("../../../public/assets/imgs/img_7.png");
     background-repeat: no-repeat;

@@ -3,37 +3,40 @@
 @section('content')
     <div class="container mt-5">
         <div><h1>Your Cart</h1>
-            <table class="table1 table-cart">
-                <thead>
-                <tr>
-                    <th width="25%" class="th-product">Product</th>
-                    <th width="20%">Unit price</th>
-                    <th width="10%">Quanity</th>
-                    <th width="25%">Total</th>
-                </tr>
-                </thead>
-                @foreach($carts as $cart)
-                    <tbody>
+            @if($carts)
+                <table class="table1 table-cart">
+                    <thead>
                     <tr>
-                        <td><img
-                                src="https://res.cloudinary.com/dbfn5lnvx/image/upload/q_auto/v1607769454/react-tutorial/products/final/cheese.png"
-                                width="30" height="30" alt=""> Cheese
-                        </td>
-                        <td>$10</td>
-                        <td>1</td>
-                        <td><strong>$10</strong></td>
+                        <th width="25%" class="th-product">Product</th>
+                        <th width="20%">Unit price</th>
+                        <th width="10%">Quanity</th>
+                        <th width="25%">Total</th>
                     </tr>
+                    </thead>
+                    @endif
+                    @foreach($data as $item)
+                        <tbody>
+                        <tr>
+                            <td class="fs-4"><img class="float-start ms-3 fs-2" src="{{asset('storage/' . $item['products']['photo'])}}"
+                                    width="30" height="30" alt=""> {{$item['products']['name']}}
+                            </td>
+                            <td>{{$item['products']['price']}}</td>
+                            <td>{{$item['quantity']}}</td>
+                            <td><strong>{{$item['total']}}</strong></td>
+                        </tr>
 
-                    </tbody>
-                @endforeach
-                <tfoot>
-                <tr>
-                    <th colspan="2"></th>
-                    <th class="cart-highlight">Total</th>
-                    <th class="cart-highlight">$21</th>
-                </tr>
-                </tfoot>
-            </table>
+                        </tbody>
+                    @endforeach
+                    @if($carts)
+                        <tfoot>
+                        <tr>
+                            <th colspan="2"></th>
+                            <th class="cart-highlight">Total</th>
+                            <th class="cart-highlight">{{$totalprice}}</th>
+                        </tr>
+                        </tfoot>
+                </table>
+            @endif
         </div>
     </div>
 
